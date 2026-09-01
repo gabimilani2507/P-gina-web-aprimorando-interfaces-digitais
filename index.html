@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>anne with an e</title>
   <style>
-      /* VARIÁVEIS DE CORES (MODO CLARO POR PADRÃO DO BLOG) */
+      /* CONFIGURAÇÃO DE FONTES E VARIÁVEIS DO BLOG (MODO CLARO POR PADRÃO) */
       :root {
           --cor-primaria: #e36b7b;     /* Rosa do cabeçalho */
           --cor-secundaria: #590b1b;   /* Bordas escuras */
           --cor-fundo: #2e0202;        /* Fundo escuro do main */
           --cor-texto: #eb8ea8;        /* Texto rosa claro */
           --cor-contraste: #2a0101;    /* Texto escuro do cabeçalho */
-          --fonte-texto: 'Segoe UI', sans-serif;
+          --fonte-principal: 'Segoe UI', sans-serif;
       }
 
       /* PALETA DE CORES INVERTIDA PARA O MODO ESCURO */
@@ -25,7 +25,7 @@
           --cor-contraste: #eb8ea8;    /* Texto do cabeçalho ganha cor de destaque */
       }
 
-      /* TRANSIÇÃO SUAVE PARA TODO O SITE */
+      /* TRANSIÇÃO SUAVE PARA AS MUDANÇAS DE TEMA */
       * {
           transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
@@ -33,8 +33,10 @@
       body {
           max-width: 100vw;
           margin: 0 auto;
-          font-family: var(--fonte-texto);
+          font-family: var(--fonte-principal);
           background-color: var(--cor-fundo);
+          /* AJUSTE DE FONTE MAIOR PARA FACILITAR A LEITURA CONFORME AS AULAS */
+          font-size: 22px; 
       }
 
       header {
@@ -45,6 +47,7 @@
           border: 5px solid var(--cor-secundaria);
       }
 
+      /* LAYOUT MAIS ORGANIZADO COM FLEXBOX COORDENADO PELO MAIN */
       main {
           background-color: var(--cor-fundo);
           color: var(--cor-texto);
@@ -54,6 +57,7 @@
           padding: 16px;
       }
 
+      /* CARDS DE ARTIGOS PADRONIZADOS, FLEXÍVEIS E ALINHADOS */
       article {
           display: flex;
           flex-direction: column;
@@ -67,6 +71,7 @@
           box-sizing: border-box;
           background-color: rgba(255, 255, 255, 0.03);
           border-radius: 8px;
+          /* SOMBRA (BOX-SHADOW) PARA EFEITO PROFISSIONAL DE PROFUNDIDADE */
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       }
 
@@ -81,19 +86,7 @@
           font-weight: bold;
       }
 
-      .artigo-fonte {
-          font-size: 0.85rem;
-          font-style: italic;
-          color: var(--cor-texto);
-          opacity: 0.8;
-      }
-
-      a {
-          color: var(--cor-texto);
-          text-decoration: underline;
-      }
-
-      /* ESTILIZAÇÃO DO BOTÃO FLUTUANTE DE TEMA */
+      /* ESTILIZAÇÃO DO BOTÃO FLUTUANTE DO TEMA ESCURO */
       .btn-tema-escuro {
           position: fixed;
           bottom: 16px;
@@ -105,13 +98,10 @@
           border: none;
           cursor: pointer;
           z-index: 1000;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       }
 
-      /* AJUSTES DE ACESSIBILIDADE ESPECÍFICOS PARA O MODO ESCURO */
-      .tema-escuro a {
-          color: #e36b7b;
-      }
-
+      /* AJUSTES ADICIONAIS DE ACESSIBILIDADE E REGRAS DO TEMA ESCURO */
       .tema-escuro p {
           color: var(--cor-texto);
       }
@@ -120,7 +110,6 @@
           color: var(--cor-contraste);
       }
 
-      /* Garante o contraste e destaque do botão flutuante no modo escuro */
       .tema-escuro .btn-tema-escuro {
           background-color: var(--cor-secundaria);
       }
@@ -133,89 +122,86 @@
       <p>irei te convencer a assistir Anne an E</p>
   </header>
   <main>
+      <!-- Primeiro Post Original -->
       <article>
           <img src="https://justwatch.com"
               alt="Logo oficial escrito Anne With an E">
           <div>
               <h2>Meu primeiro post</h2>
               <p class="artigo-autor">Por: Gabrieli matos milani</p>
-              <p>Anne é uma série de romance antigo, que aborda uma garota traumatizada órfã, que é adotada por um casal de irmãos solteiros por engano.</p>
-              <p class="artigo-fonte">Fonte: <a href="https://netflix.com" target="_blank">Página da Série na Netflix</a></p>
+              <p>Anne é uma série de romace antigo, que aborda uma garota traumatizada orfã, que é adotada por um casal de irmãos solteiros por engano.</p>
               <button>❤️ <span>0</span></button>
               <button>👎 <span>0</span></button>
           </div>
       </article>
 
+      <!-- Segundo Post Original -->
       <article>
           <img src="https://justwatch.com"
               alt="Logo oficial escrito Anne With an E">
           <div>
               <h2>Meu segundo post</h2>
               <p class="artigo-autor">Por: Gabrieli matos milani</p>
-              <p>Ao longo da série, Anne enfrenta desafios para se adaptar ao seu novo lar, faz amigas com dificuldade por causa de sua personalidade forte e "fora do comum".
-              <br><br>
-              Anne se apaixona, e acaba virando um dos casais mais inspiradores para os telespectadores.</p>
-              <p class="artigo-fonte">Fonte: <a href="https://adorocinema.com" target="_blank">Ficha Técnica no AdoroCinema</a></p>
+              <p>Ao longo da série, Anne enfrenta desafios para se adaptar ao seu novo lar, faz amigas com dificuldade por causa de sua personalidade forte e "fora do comum", Anne se apaixona, e a caba virando um dos casais mais inspiradores para os telespectadores.</p>
               <button>❤️ <span>0</span></button>
               <button>👎 <span>0</span></button>
           </div>
       </article>
 
+      <!-- Terceiro Post Adicionado sobre a Série -->
       <article>
           <img src="https://justwatch.com"
               alt="Logo oficial escrito Anne With an E">
           <div>
               <h2>Meu terceiro post</h2>
-              <p class="artigo-autor">Por: Felipe de Oliveira</p>
-              <p>Além da excelente história, a produção se destaca pelos temas extremamente modernos que discute, como direitos das mulheres, racismo e liberdade de expressão em pleno século XIX.
-              <br><br>
-              A fotografia da série é impecável, trazendo paisagens naturais incríveis que dão vida à imaginação fértil da Anne.</p>
-              <p class="artigo-fonte">Fonte: <a href="https://imdb.com" target="_blank">Avaliações da Comunidade no IMDb</a></p>
+              <p class="artigo-autor">Por: Gabrieli matos milani</p>
+              <p>A produção aborda de maneira genial assuntos super importantes e atuais para a nossa sociedade, misturando tudo isso com diálogos poéticos emocionantes e uma fotografia impecável de tirar o fôlego.</p>
               <button>❤️ <span>0</span></button>
               <button>👎 <span>0</span></button>
           </div>
       </article>
 
+      <!-- Botão interativo para alternar o modo escuro -->
       <button class="btn-tema-escuro">🌙</button>
   </main>
-
-  <script>
-    // LÓGICA DAS CURTIDAS NOS BOTÕES
-    const botoes = document.querySelectorAll("main article button");
-
-    botoes.forEach(function (botao) {
-        let curtiu = false;
-        botao.addEventListener("click", botaoClicado);
-        function botaoClicado() {
-            console.log("fui clicado");
-            let texto = botao.querySelector("span");
-            if (curtiu === false){
-                texto.textContent++;
-                curtiu = true;
-              } else{
-                texto.textContent--;
-                curtiu = false;
-            }
-        }
-    });
-
-    // LÓGICA DE INTERAÇÃO DO BOTÃO DE TEMA ESCURO
-    const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
-
-    btnTemaEscuro.addEventListener("click", mudaTema);
-
-    function mudaTema() {
-        const corpoPagina = document.body;
-
-        if (corpoPagina.classList.contains("tema-escuro")) {
-            corpoPagina.classList.remove("tema-escuro");
-            btnTemaEscuro.textContent = "🌙";
-        } else {
-            corpoPagina.classList.add("tema-escuro");
-            btnTemaEscuro.textContent = "☀️";
-        }
-    }
-  </script>
 </body>
+
+<script>
+  // LÓGICA DE INTERAÇÃO DOS BOTÕES DE CURTIDA
+  const botoes = document.querySelectorAll("main article button");
+
+  botoes.forEach(function (botao) {
+      let curtiu = false;
+      botao.addEventListener("click", botaoClicado);
+      function botaoClicado() {
+          console.log("fui clicado");
+          let texto = botao.querySelector("span");
+          if (curtiu === false){
+              texto.textContent++;
+              curtiu = true;
+          } else{
+              texto.textContent--;
+              curtiu = false;
+          }
+      }
+  });
+
+  // LÓGICA DE INTERAÇÃO DO BOTÃO DE ALTERNÂNCIA DE TEMA
+  const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+
+  btnTemaEscuro.addEventListener("click", mudaTema);
+
+  function mudaTema() {
+      const corpoPagina = document.body;
+
+      if (corpoPagina.classList.contains("tema-escuro")) {
+          corpoPagina.classList.remove("tema-escuro");
+          btnTemaEscuro.textContent = "🌙"; /* Emoji de lua para o modo claro */
+      } else {
+          corpoPagina.classList.add("tema-escuro");
+          btnTemaEscuro.textContent = "☀️"; /* Emoji de sol para o modo escuro */
+      }
+  }
+</script>
 
 </html>
