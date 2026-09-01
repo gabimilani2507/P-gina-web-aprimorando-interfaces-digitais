@@ -1,123 +1,219 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cooperação Urbana & Economia Local</title>
-    <style>
-        /* DESIGN EXCLUSIVO: PALETA NATUREZA & TERRA */
-        body {
-            background-color: #fcf9f5;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #2b3a2a;
-            line-height: 1.7;
-            margin: 0;
-            padding: 60px 20px;
-            display: flex;
-            justify-content: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>anne with an e</title>
+  <style>
+      /* VARIÁVEIS DE CORES (MODO CLARO POR PADRÃO) */
+      :root {
+          --cor-primaria: #e36b7b;     /* Rosa do cabeçalho */
+          --cor-secundaria: #590b1b;   /* Bordas escuras */
+          --cor-fundo: #2e0202;        /* Fundo escuro do main */
+          --cor-texto: #eb8ea8;        /* Texto rosa claro */
+          --cor-contraste: #2a0101;    /* Texto escuro do cabeçalho */
+          --fonte-texto: 'Segoe UI', sans-serif;
+      }
 
-        .page-container {
-            background-color: #ffffff;
-            max-width: 600px;
-            width: 100%;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(43, 58, 42, 0.04);
-            border: 1px solid #ebe5df;
-        }
+      /* PALETA DE CORES INVERTIDA PARA O MODO ESCURO */
+      .tema-escuro {
+          --cor-primaria: #2a0101;     /* Cabeçalho fica escuro */
+          --cor-secundaria: #e36b7b;   /* Bordas ganham destaque rosa */
+          --cor-fundo: #120002;        /* Fundo do main fica ainda mais profundo */
+          --cor-texto: #ffffff;        /* Textos dos posts ficam brancos */
+          --cor-contraste: #eb8ea8;    /* Texto do cabeçalho ganha cor de destaque */
+      }
 
-        h1 {
-            color: #2e6f40;
-            text-align: left;
-            font-size: 2.4rem;
-            margin-bottom: 25px;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
+      /* TRANSIÇÃO SUAVE PARA TODO O SITE */
+      * {
+          transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
 
-        p {
-            font-size: 1.05rem;
-            margin-bottom: 25px;
-            color: #4a5a48;
-        }
+      body {
+          max-width: 100vw;
+          margin: 0 auto;
+          font-family: var(--fonte-texto);
+          background-color: var(--cor-fundo);
+      }
 
-        /* DIV ASSIMÉTRICA COM ESTILO CARDE */
-        .highlight-box {
-            background-color: #f1f7f3;
-            padding: 25px;
-            border-radius: 16px;
-            margin: 30px 0;
-        }
+      header {
+          background-color: var(--cor-primaria);
+          color: var(--cor-contraste);
+          text-align: center;
+          padding: 16px;
+          border: 5px solid var(--cor-secundaria);
+      }
 
-        .box-title {
-            font-weight: 700;
-            color: #1e4a2a;
-            margin-top: 0;
-            font-size: 1.15rem;
-        }
+      main {
+          background-color: var(--cor-fundo);
+          color: var(--cor-texto);
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 16px;
+      }
 
-        ul {
-            padding-left: 15px;
-            margin-bottom: 0;
-            list-style-type: '→ ';
-        }
+      article {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          margin: 16px;
+          gap: 16px;
+          padding: 16px;
+          flex: 1 1 25%;
+          box-sizing: border-box;
+          background-color: rgba(255, 255, 255, 0.03);
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
 
-        li {
-            margin-bottom: 15px;
-            font-size: 1rem;
-            color: #3b4d39;
-            padding-left: 5px;
-        }
+      img {
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+          border-radius: 4px;
+      }
 
-        li strong {
-            color: #2e6f40;
-        }
+      .artigo-autor {
+          font-weight: bold;
+      }
 
-        /* LINK MINIMALISTA */
-        a {
-            color: #2e6f40;
-            text-decoration: none;
-            font-weight: 600;
-            background-image: linear-gradient(120deg, #bfe3ca 0%, #bfe3ca 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 35%;
-            background-position: 0 85%;
-            transition: background-size 0.25s ease-in;
-        }
+      .artigo-fonte {
+          font-size: 0.85rem;
+          font-style: italic;
+          color: var(--cor-texto);
+          opacity: 0.8;
+      }
 
-        a:hover {
-            background-size: 100% 100%;
-            color: #1e4a2a;
-        }
-    </style>
+      a {
+          color: var(--cor-texto);
+          text-decoration: underline;
+      }
+
+      /* ESTILIZAÇÃO DO BOTÃO FLUTUANTE DE TEMA */
+      .btn-tema-escuro {
+          position: fixed;
+          bottom: 16px;
+          right: 16px;
+          font-size: 32px;
+          padding: 12px;
+          background-color: var(--cor-primaria);
+          border-radius: 50%;
+          border: none;
+          cursor: pointer;
+          z-index: 1000;
+      }
+
+      /* AJUSTES DE ACESSIBILIDADE ESPECÍFICOS PARA O MODO ESCURO */
+      .tema-escuro a {
+          color: #e36b7b;
+      }
+
+      .tema-escuro p {
+          color: var(--cor-texto);
+      }
+
+      .tema-escuro header p {
+          color: var(--cor-contraste);
+      }
+
+      /* Garante o contraste e destaque do botão flutuante no modo escuro */
+      .tema-escuro .btn-tema-escuro {
+          background-color: var(--cor-secundaria);
+      }
+  </style>
 </head>
+
 <body>
+  <header>
+      <h1>Anne With an E</h1>
+      <p>irei te convencer a assistir Anne an E</p>
+  </header>
+  <main>
+      <article>
+          <img src="https://justwatch.com"
+              alt="Logo oficial escrito Anne With an E">
+          <div>
+              <h2>Meu primeiro post</h2>
+              <p class="artigo-autor">Por: Gabrieli matos milani</p>
+              <p>Anne é uma série de romance antigo, que aborda uma garota traumatizada órfã, que é adotada por um casal de irmãos solteiros por engano.</p>
+              <p class="artigo-fonte">Fonte: <a href="https://tnmoc.org" target="_blank">The National Museum of Computing</a></p>
+              <button>❤️ <span>0</span></button>
+              <button>👎 <span>0</span></button>
+          </div>
+      </article>
 
-    <!-- CONTAINER PRINCIPAL -->
-    <div class="page-container">
-        
-        <!-- TÍTULO PRINCIPAL -->
-        <h1>Finanças Coletivas:<br>Cooperação na Prática</h1>
-        
-        <!-- PARÁGRAFO DE INTRODUÇÃO -->
-        <p>A empatia ganha contornos práticos quando transforma a economia de uma comunidade. Os bancos comunitários e as moedas locais sociais provam que a cooperação financeira é capaz de gerar autonomia social, mantendo a riqueza circulando onde ela é mais necessária: na base da sociedade.</p>
-        
-        <!-- CAIXA DE DESTAQUE / DIV -->
-        <div class="highlight-box">
-            <p class="box-title">Princípios da Economia Solidária</p>
-            
-            <!-- LISTA NÃO ORDENADA -->
-            <ul>
-                <li><strong>Gestão Democrática:</strong> A própria comunidade decide coletivamente onde investir os recursos disponíveis.</li>
-                <li><strong>Consumo Consciente:</strong> Priorização do comércio e dos produtores do próprio bairro.</li>
-                <li><strong>Crédito Produtivo Orientado:</strong> Empréstimos baseados na confiança mútua e sem juros abusivos.</li>
-            </ul>
-        </div>
+      <article>
+          <img src="https://justwatch.com"
+              alt="Logo oficial escrito Anne With an E">
+          <div>
+              <h2>Meu segundo post</h2>
+              <p class="artigo-autor">Por: Gabrieli matos milani</p>
+              <p>Ao longo da série, Anne enfrenta desafios para se adaptar ao seu novo lar, faz amigas com dificuldade por causa de sua personalidade forte e "fora do comum".
+              <br><br>
+              Anne se apaixona, e acaba virando um dos casais mais inspiradores para os telespectadores.</p>
+              <p class="artigo-fonte">Fonte: <a href="https://tnmoc.org" target="_blank">The National Museum of Computing</a></p>
+              <button>❤️ <span>0</span></button>
+              <button>👎 <span>0</span></button>
+          </div>
+      </article>
 
-        <!-- PARÁGRAFO DE CONCLUSÃO COM LINK ALTERNATIVO (NÃO-WIKIPEDIA) -->
-        <p>Quer entender como pequenas redes transformam cenários globais? Explore os dados e mapas de iniciativas globais no portal <a href="https://appropedia.org" target="_blank">Appropedia Sustainability</a>.</p>
-    </div>
+      <article>
+          <img src="https://justwatch.com"
+              alt="Logo oficial escrito Anne With an E">
+          <div>
+              <h2>Meu terceiro post</h2>
+              <p class="artigo-autor">Por: Felipe de Oliveira</p>
+              <p>Além da excelente história, a produção se destaca pelos temas extremamente modernos que discute, como direitos das mulheres, racismo e liberdade de expressão em pleno século XIX.
+              <br><br>
+              A fotografia da série é impecável, trazendo paisagens naturais incríveis que dão vida à imaginação fértil da Anne.</p>
+              <p class="artigo-fonte">Fonte: <a href="https://tnmoc.org" target="_blank">The National Museum of Computing</a></p>
+              <button>❤️ <span>0</span></button>
+              <button>👎 <span>0</span></button>
+          </div>
+      </article>
 
+      <button class="btn-tema-escuro">🌙</button>
+  </main>
+
+  <script>
+    // LÓGICA DAS CURTIDAS NOS BOTÕES
+    const botoes = document.querySelectorAll("main article button");
+
+    botoes.forEach(function (botao) {
+        let curtiu = false;
+        botao.addEventListener("click", botaoClicado);
+        function botaoClicado() {
+            console.log("fui clicado");
+            let texto = botao.querySelector("span");
+            if (curtiu === false){
+                texto.textContent++;
+                curtiu = true;
+              } else{
+                texto.textContent--;
+                curtiu = false;
+            }
+        }
+    });
+
+    // LÓGICA DE INTERAÇÃO DO BOTÃO DE TEMA ESCURO
+    const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+
+    btnTemaEscuro.addEventListener("click", mudaTema);
+
+    function mudaTema() {
+        const corpoPagina = document.body;
+
+        if (corpoPagina.classList.contains("tema-escuro")) {
+            corpoPagina.classList.remove("tema-escuro");
+        } else {
+            corpoPagina.classList.add("tema-escuro");
+        }
+    }
+  </script>
 </body>
+
 </html>
